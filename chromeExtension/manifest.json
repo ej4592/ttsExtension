@@ -1,8 +1,8 @@
 {
   "manifest_version": 3,
-  "name": "TTS Extension",
+  "name": "TTS Chrome Extension",
   "version": "1.0",
-  "description": "Reads highlighted text out loud using OpenAI TTS API via a Python backend.",
+  "description": "Reads highlighted text out loud using a local TTS server",
   "permissions": [
     "contextMenus",
     "activeTab",
@@ -11,7 +11,14 @@
   "background": {
     "service_worker": "background.js"
   },
-  "action": {
-    "default_title": "TTS Extension"
-  }
+  "content_scripts": [
+    {
+      "matches": [
+        "<all_urls>"
+      ],
+      "js": [
+        "content.js"
+      ]
+    }
+  ]
 }

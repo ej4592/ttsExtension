@@ -1,8 +1,15 @@
-# TTS Extension
+# TTS Chrome Extension
 
-This project provides a Python backend using Flask and OpenAI's TTS API and a Chrome extension that sends highlighted text to the backend and plays the generated audio.
+This Chrome extension uses the built-in Web Speech API to convert highlighted text on a webpage into speech.
 
-## Project Structure
+## How to Install
 
-- **Python Backend:** Located in the `src/ttsextension` folder and managed by Poetry.
-- **Chrome Extension:** Located in the `chrome_extension` folder.
+1. Open Chrome and go to `chrome://extensions/`.
+2. Enable "Developer mode" (toggle in the upper right).
+3. Click "Load unpacked" and select the `ttsChromeExtension` folder.
+
+## How to Use
+
+1. Highlight some text on any webpage.
+2. Right-click and select **"Read text out loud"**.
+3. The selected text will be read aloud using the Web Speech API.
