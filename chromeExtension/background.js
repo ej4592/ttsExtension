@@ -1,8 +1,8 @@
-// Create context menu item
+// Create a context menu item on installation
 chrome.runtime.onInstalled.addListener(() => {
   chrome.contextMenus.create({
     id: "readText",
-    title: "Read text out loud",
+    title: "Read highlighted text",
     contexts: ["selection"]
   });
 });
@@ -10,7 +10,6 @@ chrome.runtime.onInstalled.addListener(() => {
 // Listen for context menu clicks
 chrome.contextMenus.onClicked.addListener(async (info, tab) => {
   if (info.menuItemId === "readText" && info.selectionText) {
-    // Send the selected text to your backend
     try {
       const response = await fetch("http://localhost:5000/tts", {
         method: "POST",
@@ -20,17 +19,14 @@ chrome.contextMenus.onClicked.addListener(async (info, tab) => {
         body: JSON.stringify({ text: info.selectionText })
       });
       if (!response.ok) {
-        throw new Error("TTS API error");
+        throw new Error("TTS API request failed");
       }
-      // Convert the response into a Blob and create an object URL
       const audioBlob = await response.blob();
       const audioUrl = URL.createObjectURL(audioBlob);
-
-      // Play the audio
       const audio = new Audio(audioUrl);
       audio.play();
     } catch (error) {
-      console.error("Error during TTS:", error);
+      console.error("Error:", error);
     }
   }
 });

@@ -1,0 +1,24 @@
+[project]
+name = "ttsextension"
+version = "0.1.0"
+description = ""
+authors = [
+    {name = "Eric Ji",email = "ericji300@gmail.com"}
+]
+readme = "README.md"
+python = ">=3.8,<4.0"
+
+# Tell Poetry to look for the package inside src/
+packages = [
+    { include = "ttsextension", from = "src" }
+]
+
+[tool.poetry.dependencies]
+flask = "^2.2.2"
+flask-cors = "^5.0.1"
+openai = "^1.64.0"
+
+
+[build-system]
+requires = ["poetry-core>=2.0.0,<3.0.0"]
+build-backend = "poetry.core.masonry.api"

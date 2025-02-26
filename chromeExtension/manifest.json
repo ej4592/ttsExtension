@@ -1,8 +1,8 @@
 {
   "manifest_version": 3,
-  "name": "Text-to-Speech Highlighter",
+  "name": "TTS Extension",
   "version": "1.0",
-  "description": "Reads highlighted text out loud using OpenAI TTS.",
+  "description": "Reads highlighted text out loud using OpenAI TTS API via a Python backend.",
   "permissions": [
     "contextMenus",
     "activeTab",
@@ -12,6 +12,6 @@
     "service_worker": "background.js"
   },
   "action": {
-    "default_title": "TTS Highlighter"
+    "default_title": "TTS Extension"
   }
 }
