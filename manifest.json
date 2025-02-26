@@ -1,0 +1,17 @@
+{
+  "manifest_version": 3,
+  "name": "Text-to-Speech Highlighter",
+  "version": "1.0",
+  "description": "Reads highlighted text out loud using OpenAI TTS.",
+  "permissions": [
+    "contextMenus",
+    "activeTab",
+    "scripting"
+  ],
+  "background": {
+    "service_worker": "background.js"
+  },
+  "action": {
+    "default_title": "TTS Highlighter"
+  }
+}
